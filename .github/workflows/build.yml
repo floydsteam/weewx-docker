@@ -12,16 +12,16 @@ on:
   repository_dispatch:
     # Respond to rebuild requests. See: https://github.com/cisagov/action-apb/
     types: [apb]
-  workflow_dispatch:
-    inputs:
-      remote-shell:
-        description: "Debug with remote shell"
-        required: true
-        default: false
-      image-tag:
-        description: "Tag to apply to pushed images"
-        required: true
-        default: dispatch
+#  workflow_dispatch:
+#    inputs:
+#      remote-shell:
+#        description: "Debug with remote shell"
+#        required: true
+#        default: false
+#      image-tag:
+#        description: "Tag to apply to pushed images"
+#        required: true
+#        default: dispatch
 
 env:
   BUILDX_CACHE_DIR: ~/.cache/buildx
