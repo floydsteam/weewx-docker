@@ -1,29 +1,43 @@
 # weewx-docker 🌩🐳 #
 
-[![GitHub Build Status](https://github.com/felddy/weewx-docker/workflows/build/badge.svg)](https://github.com/felddy/weewx-docker/actions)
-[![CodeQL](https://github.com/felddy/weewx-docker/workflows/CodeQL/badge.svg)](https://github.com/felddy/weewx-docker/actions/workflows/codeql-analysis.yml)
-[![WeeWX Version](https://img.shields.io/github/v/release/felddy/weewx-docker?color=brightgreen)](https://hub.docker.com/r/felddy/weewx)
+[![GitHub Build Status](https://github.com/floydsteam/weewx-docker/workflows/build/badge.svg)](https://github.com/floydsteam/weewx-docker/actions)
+[![CodeQL](https://github.com/floydsteam/weewx-docker/workflows/CodeQL/badge.svg)](https://github.com/floydsteam/weewx-docker/actions/workflows/codeql-analysis.yml)
+[![WeeWX Version](https://img.shields.io/github/v/release/floydsteam/weewx-docker?color=brightgreen)](https://hub.docker.com/r/floydsteam/weewx)
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/felddy/weewx)](https://hub.docker.com/r/felddy/weewx)
-[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/felddy/weewx)](https://hub.docker.com/r/felddy/weewx)
-[![Platforms](https://img.shields.io/badge/platforms-amd64%20%7C%20arm%2Fv6%20%7C%20arm%2Fv7%20%7C%20arm64%20%7C%20ppc64le%20%7C%20s390x-blue)](https://hub.docker.com/r/felddy/weewx/tags)
+[![Docker Pulls](https://img.shields.io/docker/pulls/floydsteam/weewx)](https://hub.docker.com/r/floydsteam/weewx)
+[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/floydsteam/weewx)](https://hub.docker.com/r/floydsteam/weewx)
+[![Platforms](https://img.shields.io/badge/platforms-amd64%20%7C%20arm%2Fv6%20%7C%20arm%2Fv7%20%7C%20arm64%20%7C%20ppc64le%20%7C%20s390x-blue)](https://hub.docker.com/r/floydsteam/weewx/tags)
 
 This docker container can be used to quickly get a
 [WeeWX](http://weewx.com) instance up and running.
 
 This container has the following WeeWX extensions installed:
 
-* [interceptor](https://github.com/matthewwall/weewx-interceptor)
+* [interceptor](https://github.com/floydsteam/weewx-interceptor)
+(forked and modified repo)
 * [mqtt](https://github.com/weewx/weewx/wiki/mqtt)
+
+## Notes ##
+
+This GitHub repo is forked from [felddy/weewx-docker](https://github.com/felddy/weewx-docker)
+(great work! 👍).
+
+It uses a forked and modified version of the
+[interceptor](https://github.com/floydsteam/weewx-interceptor)
+extension to provide basic support for the Ecowitt WH57.
+This sensor will provide some information on lightning strikes in an area
+around the weather station.
+Note that currently only the count and distance can be stored in a
+WeeWX database without further modifications.
 
 ## Usage ##
 
 ### Install ###
 
-Pull `felddy/weewx` from the Docker repository:
+Pull `floydsteam/weewx` from the Docker repository:
 
 ```console
-docker pull felddy/weewx
+docker pull floydsteam/weewx
 ```
 
 ### Run ###
@@ -45,7 +59,7 @@ volumes:
 
 services:
   weewx:
-    image: felddy/weewx
+    image: floydsteam/weewx
     init: true
     restart: "yes"
     volumes:
@@ -134,8 +148,8 @@ Build the image locally using this git repository as the [build context](https:/
 
 ```console
 docker build \
-  --tag felddy/weewx:4.4.0 \
-  https://github.com/felddy/weewx-docker.git#develop
+  --tag floydsteam/weewx:4.4.0 \
+  https://github.com/floydsteam/weewx-docker.git#develop
 ```
 
 ## Cross-platform builds ##
@@ -148,7 +162,7 @@ Docker:
    or the command line:
 
     ```console
-    git clone https://github.com/felddy/weewx-docker.git
+    git clone https://github.com/floydsteam/weewx-docker.git
     cd weewx-docker
     ```
 
@@ -165,7 +179,7 @@ Docker:
       --file Dockerfile-x \
       --platform linux/amd64 \
       --output type=docker \
-      --tag felddy/weewx:4.4.0 .
+      --tag floydsteam/weewx:4.4.0 .
     ```
 
 ## Debugging ##
