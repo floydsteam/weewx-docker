@@ -148,7 +148,7 @@ Build the image locally using this git repository as the [build context](https:/
 
 ```console
 docker build \
-  --tag floydsteam/weewx:4.4.0 \
+  --tag floydsteam/weewx:4.5.1 \
   https://github.com/floydsteam/weewx-docker.git#develop
 ```
 
@@ -179,7 +179,7 @@ Docker:
       --file Dockerfile-x \
       --platform linux/amd64 \
       --output type=docker \
-      --tag floydsteam/weewx:4.4.0 .
+      --tag floydsteam/weewx:4.5.1 .
     ```
 
 ## Debugging ##
